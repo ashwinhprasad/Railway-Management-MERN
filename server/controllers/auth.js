@@ -31,12 +31,16 @@ const loginUser = async (req, res) => {
   // creating token and setting cookie in the browser
   const token = jwt.sign({ email: userExist.email }, process.env.TOKENKEY);
 
-  res.cookie("token", token).json({
-    email: userExist.email,
-    name: userExist.name,
-    is_admin: userExist.is_admin,
-    token: token,
-  });
+  res
+    .cookie("token", token, {
+      httpOnly: false,
+    })
+    .json({
+      email: userExist.email,
+      name: userExist.name,
+      is_admin: userExist.is_admin,
+      token: token,
+    });
 };
 
 /*

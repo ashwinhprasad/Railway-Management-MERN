@@ -1,0 +1,10 @@
+.train-item {
+  background-color: black;
+}
+
+#train-name {
+  text-align: center;
+  text-decoration: none;
+  text-emphasis: none;
+  color: white;
+}

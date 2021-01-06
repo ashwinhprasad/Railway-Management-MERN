@@ -1,8 +1,26 @@
 //import {} from "react";
 import { Link } from "react-router-dom";
 import "./navbar.css";
+import { useDispatch, useSelector } from "react-redux";
+import { login } from "../../actions/user";
+import { useEffect } from "react";
 
 const Navbar = () => {
+  const user = useSelector((state) => state.user);
+
+  const login = () => {
+    if (!user.name) {
+      return (
+        <Link id="link" to="/login">
+          Login
+        </Link>
+      );
+    } else {
+      console.log(user);
+      return <p>Hey {user.name}</p>;
+    }
+  };
+
   return (
     <div className="navbar-container">
       <div className="navbar">
@@ -11,15 +29,7 @@ const Navbar = () => {
           Home
         </Link>
 
-        {/* browse Link */}
-        <Link id="link" to="/browse">
-          browse
-        </Link>
-
-        {/* login Link */}
-        <Link id="link" to="/login">
-          Login
-        </Link>
+        {login()}
       </div>
       <div className="lowerDesign"></div>
     </div>
