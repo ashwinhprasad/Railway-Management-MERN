@@ -17,7 +17,7 @@ const Navbar = () => {
       );
     } else {
       console.log(user);
-      return <p>Hey {user.name}</p>;
+      return <p id="username">Hey {user.name}</p>;
     }
   };
 

@@ -5,8 +5,23 @@ import React from "react";
 import Trains from "./components/Trains/Trains";
 import TrainDetail from "./components/Trains/TrainDetail";
 import Login from "./components/User/Login";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { check } from "./actions/user";
+import Cookies from "js-cookie";
 
 const App = () => {
+  const token = Cookies.get("token");
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (token) {
+      dispatch(check());
+    } else {
+      console.log("you are not logged in");
+    }
+  });
+
   return (
     <Router>
       {/* Navbar */}

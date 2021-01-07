@@ -11,3 +11,15 @@ export const login = (email, password) => async (dispatch) => {
     console.log(error);
   }
 };
+
+export const check = () => async (dispatch) => {
+  try {
+    const { data } = await api.checkUser();
+    dispatch({
+      type: "CHECK",
+      payload: data,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};

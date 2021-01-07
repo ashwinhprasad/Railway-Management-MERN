@@ -13,7 +13,12 @@ const TrainDetail = (props) => {
   }, []);
 
   if (train) {
-    return <h1>{train.name}</h1>;
+    return (
+      <div>
+        <h1 id="train-name">{train.name}</h1>
+        <h2>{train.id}</h2>
+      </div>
+    );
   } else {
     return <h1>No Train Available</h1>;
   }

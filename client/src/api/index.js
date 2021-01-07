@@ -19,3 +19,9 @@ export const loginUser = async (email, password) => {
     }
   );
 };
+
+export const checkUser = async () => {
+  return await axios.get(url + "user/return/current", {
+    withCredentials: true,
+  });
+};

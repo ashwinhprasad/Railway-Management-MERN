@@ -3,6 +3,7 @@ const jwt = require("jsonwebtoken");
 const user = require("../models/user");
 const crypto = require("crypto");
 const { v4: uuidv4 } = require("uuid");
+require("dotenv").config();
 
 /*
 method : POST
@@ -129,5 +130,39 @@ const deleteUser = async (req, res) => {
     .catch((err) => res.json({ err }));
 };
 
+/*
+method: GET
+route: /api/user/return
+description: deletes a single user given the id
+*/
+const returnCurrentUser = async (req, res) => {
+  const { token } = req.cookies;
+
+  if (!token) return res.json({ msg: "Token Does not Exist" });
+
+  try {
+    var decoded = jwt.verify(token, process.env.TOKENKEY);
+  } catch (err) {
+    console.log(err);
+  }
+  const userExist = await user
+    .findOne({ email: decoded.email })
+    .catch((err) => console.log(err));
+
+  if (!userExist) return res.json({ msg: "User Does not Exist" });
+
+  return res.json({
+    name: userExist.name,
+    email: userExist.email,
+    is_admin: userExist.is_admin,
+  });
+};
+
 // exporting the modules
-module.exports = { createUser, getUser, getAllUsers, deleteUser };
+module.exports = {
+  createUser,
+  getUser,
+  getAllUsers,
+  deleteUser,
+  returnCurrentUser,
+};
