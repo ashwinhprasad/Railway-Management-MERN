@@ -11,9 +11,14 @@ const Navbar = () => {
   const login = () => {
     if (!user.name) {
       return (
-        <Link id="link" to="/login">
-          Login
-        </Link>
+        <div>
+          <Link id="link" to="/login">
+            Login
+          </Link>
+          <Link id="link" to="/signup">
+            Signup
+          </Link>
+        </div>
       );
     } else {
       return (

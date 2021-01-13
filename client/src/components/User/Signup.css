@@ -1,0 +1,12 @@
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  width: 40em;
+  background-image: linear-gradient(black, rgb(59, 57, 57), rgb(156, 29, 29));
+  padding: 2em;
+  margin: 10em auto auto auto;
+}
+
+input {
+  padding: 0.5em;
+}

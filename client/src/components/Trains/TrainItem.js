@@ -12,6 +12,11 @@ const TrainItem = (props) => {
     console.log(data);
   };
 
+  const buttonVisiblity = () => {
+    if (user.name) return { visibility: "visible" };
+    else return { visibility: "hidden" };
+  };
+
   return (
     <div className="train-item">
       <h2 id="train-name">{props.train.name}</h2>
@@ -23,7 +28,9 @@ const TrainItem = (props) => {
           Starting Date : {props.train.startDate.slice(0, 10)}
         </h3>
         <h3 id="price">Ticket Price: {props.train.price}rs</h3>
-        <button onClick={buttonClick}>Book Now</button>
+        <button style={buttonVisiblity()} onClick={buttonClick}>
+          Book Now
+        </button>
       </div>
     </div>
   );

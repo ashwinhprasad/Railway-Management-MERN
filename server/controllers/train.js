@@ -123,7 +123,7 @@ const deleteTrain = async (req, res) => {
 
   if (!traindel) return res.json({ msg: "Id invalid" });
 
-  traindel
+  await traindel
     .deleteOne()
     .then((train) =>
       res.json({

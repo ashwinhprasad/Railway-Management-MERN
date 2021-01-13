@@ -52,3 +52,38 @@ export const deleteBook = async (id) => {
   const { data } = await axios.delete(url + `book/${id}`);
   return data;
 };
+
+export const register = async (name, email, password, phone) => {
+  await axios.post(url + `user`, {
+    name,
+    email,
+    password,
+    phone,
+    is_admin: false,
+  });
+};
+
+export const createTrain = async (
+  name,
+  destination,
+  startpoint,
+  startDate,
+  reachDate,
+  price
+) => {
+  await axios.post(url + "train", {
+    name,
+    destination,
+    startpoint,
+    startDate,
+    reachDate,
+    price,
+  });
+};
+
+export const deleteTrain = async (id) => {
+  const { data } = await axios.delete(url + "train", {
+    data: { id },
+  });
+  console.log(data);
+};

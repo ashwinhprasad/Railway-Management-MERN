@@ -46,7 +46,7 @@ const createUser = async (req, res) => {
     phone,
   });
 
-  newUser
+  await newUser
     .save()
     .then((user) => {
       res.status(400).json({

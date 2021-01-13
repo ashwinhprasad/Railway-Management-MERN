@@ -10,6 +10,8 @@ import { useDispatch } from "react-redux";
 import { check } from "./actions/user";
 import Cookies from "js-cookie";
 import Profile from "./components/Profile/Profile";
+import Signup from "./components/User/Signup";
+import Admin from "./components/Admin/Admin";
 
 const App = () => {
   const token = Cookies.get("token");
@@ -39,6 +41,14 @@ const App = () => {
 
       <Route exact path="/logout">
         <Logout />
+      </Route>
+
+      <Route exact path="/signup">
+        <Signup />
+      </Route>
+
+      <Route exact path="/admin">
+        <Admin />
       </Route>
 
       <Route exact path="/profile">
