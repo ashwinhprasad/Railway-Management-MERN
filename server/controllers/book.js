@@ -9,24 +9,10 @@ description: creates a booking
 */
 const createBook = async (req, res) => {
   // details from body
-  const {
-    train_id,
-    user_id,
-    destination,
-    startpoint,
-    startDate,
-    reachDate,
-  } = req.body;
+  const { train_id, user_id } = req.body;
 
   // validation
-  if (
-    !train_id ||
-    !user_id ||
-    !destination ||
-    !startpoint ||
-    !startDate ||
-    !reachDate
-  )
+  if (!train_id || !user_id)
     return res.json({ msg: "please enter all the fields" });
 
   const train_available = await train.findOne({ _id: train_id });
@@ -38,10 +24,6 @@ const createBook = async (req, res) => {
   const newBook = new book({
     user: user_available._id,
     train: train_available._id,
-    destination,
-    startpoint,
-    startDate,
-    reachDate,
   });
 
   await newBook
@@ -71,7 +53,7 @@ description: gets all bookings
 const getBooks = (req, res) => {
   book
     .find()
-    .sort("startDate")
+    .sort({ startDate: -1 })
     .then((books) => {
       res.json({
         books,
@@ -137,10 +119,6 @@ const getBook = async (req, res) => {
     booking_id: bookExist._id,
     train_id: bookExist.train,
     user_id: bookExist.user,
-    destination: bookExist.destination,
-    startpoint: bookExist.startpoint,
-    startDate: bookExist.startDate,
-    reachDate: bookExist.reachDate,
   });
 };
 

@@ -16,8 +16,19 @@ const Navbar = () => {
         </Link>
       );
     } else {
-      console.log(user);
-      return <p id="username">Hey {user.name}</p>;
+      return (
+        <div>
+          <Link id="link" to="/logout">
+            Logout
+          </Link>
+          <p id="username">
+            Hey{" "}
+            <Link id="link" to="/profile">
+              {user.name}
+            </Link>
+          </p>
+        </div>
+      );
     }
   };
 

@@ -5,7 +5,7 @@ export default (user = {}, action) => {
     case "CHECK":
       return action.payload;
     case "LOGOUT":
-      return {};
+      return action.payload;
     default:
       return user;
   }

@@ -14,6 +14,11 @@ const userSchema = new mongoose.Schema({
   encry_password: {
     type: String,
   },
+  phone: {
+    type: String,
+    trim: true,
+    unique: true,
+  },
   salt: {
     type: String,
   },

@@ -9,6 +9,7 @@ description: returns all the trains
 const getTrains = async (req, res) => {
   await train
     .find({})
+    .sort({ startDate: -1 })
     .then((trains) => {
       return res.status(200).json({
         trains,
@@ -23,10 +24,25 @@ route : api/train/
 description: adds a new train
 */
 const postTrain = async (req, res) => {
-  const { name } = req.body;
+  const {
+    name,
+    destination,
+    startpoint,
+    startDate,
+    reachDate,
+    price,
+  } = req.body;
 
   // validation
-  if (!name) return res.status(400).json({ msg: "enter all the credentials" });
+  if (
+    !name ||
+    !destination ||
+    !startpoint ||
+    !startDate ||
+    !reachDate ||
+    !price
+  )
+    return res.status(400).json({ msg: "enter all the credentials" });
 
   const duplicateCheck = await train.findOne({
     name,
@@ -38,6 +54,11 @@ const postTrain = async (req, res) => {
   // add new train
   const newTrain = await new train({
     name,
+    destination,
+    startpoint,
+    startDate,
+    reachDate,
+    price,
   });
 
   newTrain
@@ -46,6 +67,11 @@ const postTrain = async (req, res) => {
       return res.status(200).json({
         name: train.name,
         users: train.populate("users").users,
+        destination: train.destination,
+        startpoint: train.startpoint,
+        startDate: train.startDate,
+        reachDate: train.reachDate,
+        price: train.price,
       });
     })
     .catch((err) => console.log(err));
@@ -72,6 +98,11 @@ const getTrain = async (req, res) => {
     id: outTrain._id,
     name: outTrain.name,
     users: outTrain.users,
+    destination: outTrain.destination,
+    startpoint: outTrain.startpoint,
+    startDate: outTrain.startDate,
+    reachDate: outTrain.reachDate,
+    price: outTrain.price,
   });
 };
 

@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { getTrains } from "../../actions/trains";
 import TrainItem from "./TrainItem";
+import "./trains.css";
 
 const Trains = () => {
   const trains = useSelector((state) => state.trains);
@@ -30,7 +31,7 @@ const Trains = () => {
 
   return (
     <div>
-      <input onChange={onChangeSearch} type="text" />
+      <input id="train-search" onChange={onChangeSearch} type="text" />
       {filt_trains.map((train) => {
         return <TrainItem key={train._id} train={train} />;
       })}

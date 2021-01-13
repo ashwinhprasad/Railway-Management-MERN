@@ -40,6 +40,8 @@ const loginUser = async (req, res) => {
       name: userExist.name,
       is_admin: userExist.is_admin,
       token: token,
+      id: userExist._id,
+      phone: userExist.phone,
     });
 };
 

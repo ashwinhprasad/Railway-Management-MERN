@@ -13,6 +13,23 @@ const TrainSchema = new mongoose.Schema({
       required: false,
     },
   ],
+  destination: {
+    type: String,
+    maxlength: 100,
+  },
+  startpoint: {
+    type: String,
+    maxlength: 100,
+  },
+  startDate: {
+    type: Date,
+  },
+  reachDate: {
+    type: Date,
+  },
+  price: {
+    type: Number,
+  },
 });
 
 module.exports = mongoose.model("train", TrainSchema);

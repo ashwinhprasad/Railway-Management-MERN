@@ -3,12 +3,13 @@ import Navbar from "./components/Navbar/Navbar";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import React from "react";
 import Trains from "./components/Trains/Trains";
-import TrainDetail from "./components/Trains/TrainDetail";
 import Login from "./components/User/Login";
 import { useEffect } from "react";
+import Logout from "./components/User/Logout";
 import { useDispatch } from "react-redux";
 import { check } from "./actions/user";
 import Cookies from "js-cookie";
+import Profile from "./components/Profile/Profile";
 
 const App = () => {
   const token = Cookies.get("token");
@@ -36,7 +37,13 @@ const App = () => {
         <Login />
       </Route>
 
-      <Route path="/train/:id" component={TrainDetail} />
+      <Route exact path="/logout">
+        <Logout />
+      </Route>
+
+      <Route exact path="/profile">
+        <Profile />
+      </Route>
     </Router>
   );
 };

@@ -11,10 +11,10 @@ route : /api/user/
 description: to create a user
 */
 const createUser = async (req, res) => {
-  const { name, email, password, is_admin } = req.body;
+  const { name, email, password, is_admin, phone } = req.body;
 
   // validation
-  if (!name || !email || !password)
+  if (!name || !email || !password || !phone)
     return res.status(400).json({
       msg: "enter all the fields",
     });
@@ -43,6 +43,7 @@ const createUser = async (req, res) => {
     encry_password,
     salt,
     is_admin,
+    phone,
   });
 
   newUser
@@ -53,6 +54,7 @@ const createUser = async (req, res) => {
         name: user.name,
         is_admin: user.is_admin,
         id: user._id,
+        phone: user.phone,
       });
     })
     .catch((err) => res.json({ err }));
@@ -81,6 +83,7 @@ const getUser = async (req, res) => {
     id: foundUser._id,
     email: foundUser.email,
     name: foundUser.name,
+    phone: foundUser.phone,
     is_admin: foundUser.is_admin,
   });
 };
@@ -124,6 +127,7 @@ const deleteUser = async (req, res) => {
         id: deletedUser.id,
         name: deletedUser.name,
         email: deletedUser.email,
+        phone: deletedUser.phone,
         is_admin: deletedUser.is_admin,
       });
     })
@@ -155,6 +159,8 @@ const returnCurrentUser = async (req, res) => {
     name: userExist.name,
     email: userExist.email,
     is_admin: userExist.is_admin,
+    phone: userExist.phone,
+    id: userExist._id,
   });
 };
 

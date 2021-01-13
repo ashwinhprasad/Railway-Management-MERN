@@ -1,3 +1,4 @@
+import axios from "axios";
 import * as api from "../api";
 
 export const login = (email, password) => async (dispatch) => {
@@ -9,6 +10,19 @@ export const login = (email, password) => async (dispatch) => {
     });
   } catch (error) {
     console.log(error);
+  }
+};
+
+export const logout = () => async (dispatch) => {
+  try {
+    const { data } = await api.logoutUser();
+    console.log(data);
+    dispatch({
+      type: "LOGOUT",
+      payload: {},
+    });
+  } catch (err) {
+    console.log(err);
   }
 };
 

@@ -1,10 +1,39 @@
 .train-item {
-  background-color: black;
+  background-color: rgb(0, 0, 0);
+  padding: 2em;
+  position: relative;
+  width: 40em;
+  margin-left: auto;
+  margin-right: auto;
+  border-bottom: rgb(255, 0, 0) 1px solid;
 }
 
 #train-name {
-  text-align: center;
   text-decoration: none;
   text-emphasis: none;
   color: white;
+  font-size: 2em;
+  margin-left: 0em;
+}
+
+#startDate {
+  color: white;
+  margin-bottom: 0.3em;
+}
+
+#price {
+  color: white;
+  margin-bottom: 0.3em;
+}
+
+#start-destination {
+  color: white;
+}
+
+#date-book {
+  position: absolute;
+  top: 0.5em;
+  right: 1em;
+  bottom: 1em;
+  margin-top: 0.5em;
 }
