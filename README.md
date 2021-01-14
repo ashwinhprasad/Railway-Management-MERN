@@ -8,34 +8,7 @@ This Repository Contains the Implementation of Railway Management System Built w
 
 ## Functionalities
 
-```mermaid
-flowchart BT;
-    subgraph Functionalities
-        Book[Book Train]
-        cancel[Cancel Booking]
-        create[create Train]
-        delete[Delete Train]
-    end
-    subgraph user and auth
-        signup
-        auth[login / logout]
-    end
-
-    subgraph actors
-        user
-        admin
-    end
-    user --> Book
-    user --> cancel
-    admin --> Book
-    admin --> cancel
-    admin --> create
-    admin --> delete
-    admin --> signup
-    admin --> auth
-    user --> signup
-    user --> auth
-```
+![functionalities](./Images/functionalities.png)
 
 - **End User :** Can **Create/Delete** and **Login/Logout** of account and **Book/Cancel** Trains
 
@@ -56,9 +29,9 @@ flowchart BT;
 - **Mongoose** - ORM for Database
 
 - **Other Additional Applications Include :**
-
+  
   - Postman - for API Testing
-
+  
   - ROBO3T - Mongo Visualizer
 
 # Thank You
