@@ -15,11 +15,14 @@ export default (props) => {
   return (
     <div className="book-detail-item">
       <h3>{train.name}</h3>
+      <h4>
+        from {train.startpoint} to {train.destination}
+      </h4>
       <button
         onClick={props.onDelete.bind(this, props.book._id)}
         id="delete-button"
       >
-        Delete
+        X
       </button>
     </div>
   );

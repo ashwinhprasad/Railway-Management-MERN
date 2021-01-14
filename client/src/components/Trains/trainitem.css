@@ -37,3 +37,10 @@
   bottom: 1em;
   margin-top: 0.5em;
 }
+
+#date-book > button {
+  background-color: steelblue;
+  border: none;
+  border-radius: 0.3em;
+  padding: 0.5em 1.2em 0.5em 1.2em;
+}

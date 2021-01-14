@@ -1,6 +1,8 @@
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import * as api from "../../api";
+import "./Admin.css";
+import Login from "../User/Login";
 
 export default (props) => {
   const user = useSelector((state) => state.user);
@@ -42,8 +44,8 @@ export default (props) => {
 
   if (user.is_admin) {
     return (
-      <div>
-        <h1>Welcome Administrator</h1>
+      <div className="admin-container">
+        <h1 id="welcome-admin">Welcome Administrator</h1>
         <form className="create-train-form">
           <h2> Create Train</h2>
           <input
@@ -108,7 +110,9 @@ export default (props) => {
         </form>
       </div>
     );
+  } else if (user.name) {
+    return <h1> Administrators only</h1>;
   } else {
-    return <h1>not admin</h1>;
+    return <Login />;
   }
 };

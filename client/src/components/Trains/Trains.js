@@ -30,8 +30,16 @@ const Trains = () => {
   });
 
   return (
-    <div>
-      <input id="train-search" onChange={onChangeSearch} type="text" />
+    <div className="trains-div">
+      <div className="search-div">
+        <input
+          id="train-search"
+          onChange={onChangeSearch}
+          type="text"
+          placeholder="Search Train"
+        />
+      </div>
+
       {filt_trains.map((train) => {
         return <TrainItem key={train._id} train={train} />;
       })}

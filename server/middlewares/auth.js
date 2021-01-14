@@ -15,12 +15,12 @@ const isAdmin = async (req, res, next) => {
   if (!token) return res.json({ msg: "user is not authenticated" });
 
   try {
-    const decoded = jwt.verify(token, process.env.TOKENKEY);
+    var decoded = jwt.verify(token, process.env.TOKENKEY);
   } catch {
     return res.json({ msg: "Invalid Token" });
   }
 
-  const User = user.findOne({ email: decoded.email });
+  const User = await user.findOne({ email: decoded.email });
 
   if (!User) return res.json({ msg: "User Does not Exist" });
 

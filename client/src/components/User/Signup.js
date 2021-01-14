@@ -70,6 +70,13 @@ export default () => {
     e.preventDefault();
     if (fields.password == fields.confirm) {
       register(fields.name, fields.email, fields.password, fields.phone);
+      setFields({
+        name: "",
+        email: "",
+        phone: "",
+        password: "",
+        confirm: "",
+      });
     } else {
       console.log("passwords don't match");
     }
@@ -77,6 +84,7 @@ export default () => {
 
   return (
     <div className="signup-form">
+      <h3>Sign-Up</h3>
       <input
         value={fields.name}
         onChange={nameChange}

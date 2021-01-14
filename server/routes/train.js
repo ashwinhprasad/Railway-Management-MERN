@@ -5,10 +5,11 @@ const {
   getTrain,
   deleteTrain,
 } = require("../controllers/train");
+const { isAdmin, isAuthenticated } = require("../middlewares/auth");
 
 router.get("/", getTrains);
-router.post("/", postTrain);
+router.post("/", isAdmin, postTrain);
 router.get("/:id", getTrain);
-router.delete("/", deleteTrain);
+router.delete("/", isAdmin, deleteTrain);
 
 module.exports = router;

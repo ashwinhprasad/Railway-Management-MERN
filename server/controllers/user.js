@@ -15,7 +15,7 @@ const createUser = async (req, res) => {
 
   // validation
   if (!name || !email || !password || !phone)
-    return res.status(400).json({
+    return res.status(200).json({
       msg: "enter all the fields",
     });
 
@@ -49,7 +49,7 @@ const createUser = async (req, res) => {
   await newUser
     .save()
     .then((user) => {
-      res.status(400).json({
+      res.status(200).json({
         email: user.email,
         name: user.name,
         is_admin: user.is_admin,
@@ -97,7 +97,7 @@ const getAllUsers = async (req, res) => {
   await user
     .find({})
     .then((users) => {
-      return res.status(400).json({
+      return res.status(200).json({
         users,
       });
     })

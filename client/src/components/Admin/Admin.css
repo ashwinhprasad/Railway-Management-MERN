@@ -1,0 +1,25 @@
+.create-train-form {
+  padding: 1em;
+  background-color: steelblue;
+  margin: 3em auto 3em auto;
+}
+
+.admin-container {
+  display: flex;
+  width: 40em;
+  flex-direction: column;
+  margin: 2em auto 2em auto;
+  background-color: rgb(167, 202, 231);
+  padding: 3em 10em 2em 10em;
+}
+
+.delete-train-form {
+  padding: 2em;
+  background-color: steelblue;
+  margin: 1em auto 5em auto;
+}
+
+#welcome-admin {
+  text-align: center;
+  font-family: sans-serif;
+}

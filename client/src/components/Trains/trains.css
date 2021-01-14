@@ -1,3 +1,12 @@
 #train-search {
-  margin-bottom: 5em;
+  margin-bottom: 3em;
+  margin-top: 2em;
+  margin-left: auto;
+  width: 15em;
+  margin-right: auto;
+  padding: 0.5em 1em 0.5em 1em;
+}
+
+.search-div {
+  display: flex;
 }

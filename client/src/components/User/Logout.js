@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { logout } from "../../actions/user";
+import "./Logout.css";
 
 export default function Logout() {
   const dispatch = useDispatch();
@@ -10,8 +11,8 @@ export default function Logout() {
   }, [dispatch]);
 
   return (
-    <div>
-      <h1>Logout Success</h1>
+    <div className="logout-container">
+      <h1 id="logout-message">Logout Success</h1>
     </div>
   );
 }

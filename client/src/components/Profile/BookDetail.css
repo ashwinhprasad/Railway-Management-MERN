@@ -1,4 +1,15 @@
 .book-detail-item {
   background-color: black;
   color: white;
+  margin-top: 1em;
+  padding: 1em;
+  border-radius: 0.5em;
+}
+
+.book-detail-item > #delete-button {
+  float: right;
+  background-color: red;
+  border-radius: 10em;
+  border: none;
+  padding: 0.5em 0.7em 0.5em 0.7em;
 }

@@ -7,6 +7,21 @@
   margin: 10em auto auto auto;
 }
 
-input {
+.signup-form > input {
   padding: 0.5em;
+  width: 20em;
+  margin: 0em auto 1em auto;
+}
+
+.signup-form > button {
+  width: 7em;
+  padding: 0.5em 1em 0.5em 1em;
+  margin: auto auto auto auto;
+}
+
+.signup-form > h3 {
+  font-family: sans-serif;
+  text-align: center;
+  color: white;
+  margin-bottom: 1em;
 }

@@ -1,0 +1,26 @@
+.login-form {
+  display: flex;
+  flex-direction: column;
+  background-image: linear-gradient(black, rgb(59, 57, 57), rgb(156, 29, 29));
+  padding: 1em 2em 1em 2em;
+  margin: 10em auto auto auto;
+  width: 30em;
+}
+
+.login-form > input {
+  margin: 1em auto 0em auto;
+  width: 20em;
+  padding: 0.5em 1em 0.5em 1em;
+}
+
+.login-form > button {
+  width: 10em;
+  margin: 1.5em auto auto auto;
+  padding: 0.5em 1em 0.5em 1em;
+}
+
+.login-form > h3 {
+  text-align: center;
+  color: white;
+  font-family: sans-serif;
+}
