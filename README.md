@@ -35,7 +35,6 @@ flowchart BT;
     admin --> auth
     user --> signup
     user --> auth
-
 ```
 
 - **End User :** Can **Create/Delete** and **Login/Logout** of account and **Book/Cancel** Trains
