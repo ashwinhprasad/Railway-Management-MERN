@@ -24,7 +24,7 @@ flowchart BT;
     subgraph actors
         user
         admin
-    end    
+    end
     user --> Book
     user --> cancel
     admin --> Book
@@ -35,7 +35,7 @@ flowchart BT;
     admin --> auth
     user --> signup
     user --> auth
-  
+
 ```
 
 - **End User :** Can **Create/Delete** and **Login/Logout** of account and **Book/Cancel** Trains
@@ -57,9 +57,9 @@ flowchart BT;
 - **Mongoose** - ORM for Database
 
 - **Other Additional Applications Include :**
-  
+
   - Postman - for API Testing
-  
+
   - ROBO3T - Mongo Visualizer
 
 # Thank You
